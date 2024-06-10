@@ -19453,70 +19453,57 @@ vec3 hsv2rgb(vec3 c)
   }
 
   // src/index.ts
-  (() => {
-    window.Webflow ||= [];
-    window.Webflow.push(() => {
-      const name = "you";
-      greetUser(name);
-    });
-    document.addEventListener("DOMContentLoaded", () => {
-      console.log("Document is ready");
-      const config = {
-        colors: [
-          { color: "#C0B7FD", enabled: true },
-          { color: "#EFD8FF", enabled: true },
-          { color: "#17E7FF", enabled: true },
-          { color: "#A689FF", enabled: true },
-          { color: "#f5e1e5", enabled: false }
-        ],
-        speed: 4,
-        horizontalPressure: 4,
-        verticalPressure: 5,
-        waveFrequencyX: 2,
-        waveFrequencyY: 3,
-        waveAmplitude: 5,
-        shadows: 0,
-        highlights: 2,
-        saturation: 7,
-        wireframe: false,
-        colorBlending: 6,
-        backgroundColor: "#003FFF",
-        backgroundAlpha: 1
-      };
-      const gradientElement = document.getElementById("gradient");
-      if (!gradientElement) {
-        console.error("Element with ID 'gradient' not found or is not a canvas element.");
-        return;
+  window.Webflow ||= [];
+  window.Webflow.push(() => {
+    const name = "wesh";
+    greetUser(name);
+  });
+  var config = {
+    colors: [
+      {
+        color: "#C0B7FD",
+        enabled: true
+      },
+      {
+        color: "#EFD8FF",
+        enabled: true
+      },
+      {
+        color: "#17E7FF",
+        enabled: true
+      },
+      {
+        color: "#A689FF",
+        enabled: true
+      },
+      {
+        color: "#f5e1e5",
+        enabled: false
       }
-      console.log("Gradient element found");
-      const neat = new X({
-        ref: gradientElement,
-        ...config
-      });
-      console.log("NeatGradient initialized");
-      const ctx = gradientElement.getContext("2d");
-      if (ctx) {
-        ctx.fillStyle = "red";
-        ctx.fillRect(0, 0, gradientElement.width, gradientElement.height);
-        console.log("Test rectangle drawn on the canvas");
-      } else {
-        console.error("Failed to get 2D context");
-      }
-      setTimeout(() => {
-        console.log("Timeout reached, attempting to get data URL");
-        const gradientURL = gradientElement.toDataURL();
-        console.log("Gradient URL:", gradientURL);
-        const container = document.getElementById("container");
-        if (!container) {
-          console.error("Element with ID 'container' not found.");
-          return;
-        }
-        console.log("Container element found");
-        container.style.backgroundImage = `url(${gradientURL})`;
-        console.log("Background image set for #container");
-      }, 1e3);
+    ],
+    speed: 4,
+    horizontalPressure: 4,
+    verticalPressure: 5,
+    waveFrequencyX: 2,
+    waveFrequencyY: 3,
+    waveAmplitude: 5,
+    shadows: 0,
+    highlights: 2,
+    saturation: 7,
+    wireframe: false,
+    colorBlending: 6,
+    backgroundColor: "#003FFF",
+    backgroundAlpha: 1
+  };
+  var gradientElement = document.getElementById("gradient");
+  if (gradientElement) {
+    const neat = new X({
+      ref: gradientElement,
+      ...config
     });
-  })();
+  } else {
+    console.error("Element with ID 'gradient' not found or is not a canvas element.");
+  }
 })();
 /*! Bundled license information:
 
